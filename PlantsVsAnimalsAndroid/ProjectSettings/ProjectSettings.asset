@@ -148,9 +148,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.FLSs.GG
+    Android: com.FLSs.PA
   buildNumber: {}
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -225,7 +225,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: D:/OneDrive/Important Docs/Bhanu/FourthLionStudios.keystore
-  AndroidKeyaliasName: glitch garden
+  AndroidKeyaliasName: plants vs animals
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
@@ -241,7 +241,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 92423951514868e42a13bb109c28bd03, type: 3}
+      m_Icon: {fileID: 2800000, guid: d8009ef68cb239a42af38cef0e549151, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
