@@ -9,11 +9,13 @@ public class FacebookManager : MonoBehaviour
 {
 	int m_currentLevel;
 
-	[SerializeField] bool m_loggedIn;
+	[SerializeField] bool m_isLoggedIn;
 
-	[SerializeField] Color m_inviteButtonColour; //Do this for Nappyville Game
+	//[SerializeField] Color m_inviteButtonColour; //Do this for Nappyville Game
 
-	[SerializeField] Image /*m_inviteButtonImage ,*/ m_logInButtonImage , m_profilePicImage , m_shareButtonImage;
+	[SerializeField] GameObject m_loggedInObj , m_loggedOutObj , m_noInternetObj;
+
+	[SerializeField] Image /*m_inviteButtonImage ,*/ m_profilePicImage , m_shareButtonImage;
 
 	[SerializeField] string m_appLinkURL = "http://google.co.uk";
 
@@ -27,11 +29,20 @@ public class FacebookManager : MonoBehaviour
 
 		if(!FB.IsInitialized) 
 		{
-			FB.Init(SetInit, OnHideUnity);	
-		} 
-		else 
+			FB.Init(SetInit , OnHideUnity);	
+		}
+
+		if(m_currentLevel == 1)
 		{
-			LoggedIn();
+			if(FB.IsLoggedIn)
+			{
+				LoggedIn();
+			}
+
+			else if(!FB.IsLoggedIn)
+			{
+				LoggedOut();
+			}
 		}
 
 		if(m_currentLevel > 1)
@@ -50,30 +61,26 @@ public class FacebookManager : MonoBehaviour
 
 		if(m_currentLevel == 1)
 		{
-			if(!m_loggedIn)
+			if(!m_isLoggedIn)
 			{
-				m_logInButtonImage.enabled = true;
-				m_profilePicImage.enabled = false;
-				m_username.enabled = false;	
+				LoggedOut();
 			}
 
-			if(m_loggedIn)
+			if(m_isLoggedIn)
 			{
-				m_logInButtonImage.enabled = false;
-				m_profilePicImage.enabled = true;
-				m_username.enabled = true;	
+				LoggedIn();
 			}
 		}
 
 		if(LevelManager.m_levelCompleteVisible && LevelManager.m_continueButtonColour.a >= 1)
 		{
-			if(m_inviteButtonColour.a < 1)
-			{
-				m_inviteButtonColour.a += 0.05f;
-				//m_inviteButtonImage.color = m_inviteButtonColour;
-			}
+//			if(m_inviteButtonColour.a < 1)
+//			{
+//				m_inviteButtonColour.a += 0.05f;
+//				//m_inviteButtonImage.color = m_inviteButtonColour;
+//			}
 
-			if(m_inviteButtonColour.a >= 1 && m_shareButtonColour.a < 1)
+			if(/*m_inviteButtonColour.a >= 1 && */m_shareButtonColour.a < 1)
 			{
 				m_shareButtonColour.a += 0.05f;
 				m_shareButtonImage.color = m_shareButtonColour;
@@ -94,22 +101,22 @@ public class FacebookManager : MonoBehaviour
 		if(authResult.Error != null) 
 		{
 			Debug.LogError("Sir Bhanu, there is an issue : " + authResult.Error);	
-			m_loggedIn = false;
-			m_noInternetText.enabled = true;
+			m_noInternetObj.SetActive(true);
 		} 
-		else 
+
+		else if(authResult.Error == null)
 		{
 			if(FB.IsLoggedIn) 
 			{
-				//Debug.Log("Player Logged in"); //If you get 400 error, it means the user token of https://developers.facebook.com/tools/accesstoken/?app_id=142429536402184 you noted down is incorrect which is easy to resolve so not to worry
-				FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
-				FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);
-				m_loggedIn = true;
+				Debug.Log("Player Logged in"); //If you get 400 error, it means the user token of https://developers.facebook.com/tools/accesstoken/?app_id=142429536402184 you noted down is incorrect which is easy to resolve so not to worry
+				//FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
+				//FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);
+				LoggedIn();
 			} 
 			else 
 			{
 				//Debug.LogError("Sir Bhanu, Player hasn't logged in on Facebook");
-				m_loggedIn = false;
+				LoggedOut();
 			}
 		}
 	}
@@ -145,12 +152,26 @@ public class FacebookManager : MonoBehaviour
 
 	void LoggedIn()
 	{
+		m_isLoggedIn = true;
+
+		FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
+		FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);
+
 		if(m_currentLevel == 1)
 		{
-			m_loggedIn = true;
-			m_logInButtonImage.enabled = false;
-			FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
-			FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);	
+			m_loggedInObj.SetActive(true);
+			m_loggedOutObj.SetActive(false);
+		}
+	}
+
+	void LoggedOut()
+	{
+		m_isLoggedIn = false;
+
+		if(m_currentLevel == 1)
+		{
+			m_loggedInObj.SetActive(false);
+			m_loggedOutObj.SetActive(true);
 		}
 	}
 
@@ -181,10 +202,9 @@ public class FacebookManager : MonoBehaviour
 
 	void ProfilePicDisplay(IGraphResult graphicResult)
 	{
-		if(graphicResult.Texture != null)
+		if(graphicResult.Texture != null && m_currentLevel == 1)
 		{
 			m_profilePicImage.sprite = Sprite.Create(graphicResult.Texture , new Rect(0 , 0 , 480 , 480) , new Vector2());
-			m_profilePicImage.enabled = true;
 		}
 	}
 
@@ -192,15 +212,15 @@ public class FacebookManager : MonoBehaviour
 	{
 		if(FB.IsLoggedIn) 
 		{
-			//Debug.Log("Player Logged in"); //If you get 400 error, it means the user token of https://developers.facebook.com/tools/accesstoken/?app_id=142429536402184 you noted down is incorrect which is easy to resolve so not to worry
-			FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
-			FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);
-			m_loggedIn = true;
+			Debug.Log("Player Logged in"); //If you get 400 error, it means the user token of https://developers.facebook.com/tools/accesstoken/?app_id=142429536402184 you noted down is incorrect which is easy to resolve so not to worry
+			//FB.API("/me?fields=first_name" , HttpMethod.GET , UsernameDisplay);
+			//FB.API("/me/picture?type=square&height=480&width=480" , HttpMethod.GET , ProfilePicDisplay);
+			LoggedIn();
 		} 
 		else 
 		{
 			//Debug.LogError("Sir Bhanu, Player hasn't logged in on Facebook");
-			m_loggedIn = false;
+			LoggedOut();
 		}
 	}
 
@@ -236,11 +256,10 @@ public class FacebookManager : MonoBehaviour
 
 	void UsernameDisplay(IResult result)
 	{
-		if(result.Error == null)
+		if(result.Error == null && m_currentLevel == 1)
 		{
 			//Debug.Log(result.ResultDictionary["first_name"]);
 			m_username.text =  "Hi " + result.ResultDictionary["first_name"];
-			m_username.enabled = true;
 		}
 	}
 }
