@@ -28,6 +28,8 @@ public class LevelManager : MonoBehaviour
 
 	[SerializeField] Outline m_adsMenuTextOutline , m_levelCompleteTextOutline , m_loseMenuTextOutline;
 
+	[SerializeField] string m_playStoreURL;
+
 	[SerializeField] Text m_adsMenuText , m_gameTimeDisplay , m_levelCompleteText , m_loseMenuText;
 
 	public static bool m_adsMenuVisible , m_levelCompleteVisible , m_loseMenuVisible;
@@ -42,6 +44,8 @@ public class LevelManager : MonoBehaviour
 		m_adsMenuVisible = false;
 		m_levelCompleteVisible = false;
 		m_loseMenuVisible = false;
+
+		Screen.orientation = ScreenOrientation.Landscape;
 
 		m_currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
@@ -403,6 +407,11 @@ public class LevelManager : MonoBehaviour
 	public void QuitYes()
 	{
 		SceneManager.LoadScene("01Start");
+	}
+
+	public void Rate()
+	{
+		//Application.OpenURL(m_playStoreURL); //After this game is published in Play store, put the url in Inspector
 	}
 
 	public void Restart()

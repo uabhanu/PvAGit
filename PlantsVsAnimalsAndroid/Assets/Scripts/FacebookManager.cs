@@ -226,10 +226,12 @@ public class FacebookManager : MonoBehaviour
 
 	public void Share()
 	{
+		Screen.orientation = ScreenOrientation.Portrait;
+
 		FB.ShareLink
 		(
 			contentTitle: "Fourth Lion Studios Message",
-			contentURL: new System.Uri("http://google.co.uk"), //Correct URL will be Play Store one when this game is reinstated
+			contentURL: new System.Uri("http://google.co.uk"), //Play Store URL here
 			contentDescription: "We really hope you love the game",
 			callback: ShareRewardUser
 		);
@@ -250,6 +252,7 @@ public class FacebookManager : MonoBehaviour
 		else 
 		{
 			Debug.Log("Share Succeeded");	
+			Screen.orientation = ScreenOrientation.Landscape;
 			//You can Reward/Thank Player here
 		}
 	}
