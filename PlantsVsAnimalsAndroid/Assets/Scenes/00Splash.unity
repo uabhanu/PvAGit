@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a984980d54f37a84ca531c97379d1a51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a3382a4653f0ba458a02c2e6692c262, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -633,37 +633,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bhanuEnemiesLeft: []
-  m_loggedIn: 0
   m_gameCollider2D: {fileID: 0}
   m_adsMenuNoButtonColour: {r: 0, g: 0, b: 0, a: 0}
   m_adsMenuTextColour: {r: 0, g: 0, b: 0, a: 0}
   m_adsMenuTextOutlineColour: {r: 0, g: 0, b: 0, a: 0}
   m_adsMenuYesButtonColour: {r: 0, g: 0, b: 0, a: 0}
-  m_continueButtonColour: {r: 0, g: 0, b: 0, a: 0}
   m_levelCompleteTextColour: {r: 0, g: 0, b: 0, a: 0}
   m_levelCompleteTextOutlineColour: {r: 0, g: 0, b: 0, a: 0}
+  m_loseMenuNoButtonColour: {r: 0, g: 0, b: 0, a: 0}
+  m_loseMenuYesButtonColour: {r: 0, g: 0, b: 0, a: 0}
+  m_loseMenuTextColour: {r: 0, g: 0, b: 0, a: 0}
+  m_loseMenuTextOutlineColour: {r: 0, g: 0, b: 0, a: 0}
+  m_facebookManager: {fileID: 0}
   m_loadTime: 2
   m_adsMenuImage: {fileID: 0}
   m_adsMenuNoButtonImage: {fileID: 0}
   m_adsMenuYesButtonImage: {fileID: 0}
   m_continueButtonImage: {fileID: 0}
-  m_fbProfilePicImage: {fileID: 0}
   m_levelCompleteImage: {fileID: 0}
-  m_logInButtonImage: {fileID: 0}
+  m_loseMenuImage: {fileID: 0}
+  m_loseMenuNoButtonImage: {fileID: 0}
+  m_loseMenuYesButtonImage: {fileID: 0}
   m_muteOffButtonImage: {fileID: 0}
   m_muteOnButtonImage: {fileID: 0}
   m_adsMenuObj: {fileID: 0}
   m_levelCompleteObj: {fileID: 0}
+  m_loseMenuObj: {fileID: 0}
   m_pauseButtonObj: {fileID: 0}
   m_pauseMenuObj: {fileID: 0}
   m_quitMenuObj: {fileID: 0}
   m_adsMenuTextOutline: {fileID: 0}
   m_levelCompleteTextOutline: {fileID: 0}
+  m_loseMenuTextOutline: {fileID: 0}
+  m_playStoreURL: 
   m_adsMenuText: {fileID: 0}
-  m_fbUsername: {fileID: 0}
   m_gameTimeDisplay: {fileID: 0}
   m_levelCompleteText: {fileID: 0}
-  m_noInternetText: {fileID: 0}
+  m_loseMenuText: {fileID: 0}
   m_gameTime: 0
   m_currentSceneIndex: 0
   m_enemyKillTarget: 0
