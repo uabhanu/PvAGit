@@ -34,7 +34,8 @@ public class PlayerButton : MonoBehaviour
 
     public void SpriteColourToggle()
     {
-		LevelManager.m_notEnoughStarsText.enabled = false;
+		LevelManager.Disable(LevelManager.m_notEnoughStarsText);
+		LevelManager.Disable(LevelManager.m_selectPlayerText);
         m_playerToSpawn = m_playerPrefab;
 
         foreach(PlayerButton playerButton in m_playerButtons)

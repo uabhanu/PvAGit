@@ -52,7 +52,8 @@ public class Star : MonoBehaviour
     {
 		if(transform.localScale.x >= 1)
 		{
-			LevelManager.m_notEnoughStarsText.enabled = false;
+			LevelManager.Disable(LevelManager.m_notEnoughStarsText);
+			LevelManager.Disable(LevelManager.m_selectPlayerText);
 			m_playerButton.ResetSelection();
 			m_starsCurrency.m_starsCount += 10;
 			Destroy(gameObject);	

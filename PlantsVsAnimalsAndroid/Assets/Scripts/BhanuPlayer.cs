@@ -102,6 +102,7 @@ public class BhanuPlayer : MonoBehaviour
 
     void OnMouseDown()
     {
-		LevelManager.m_notEnoughStarsText.enabled = false;    
+		LevelManager.Disable(LevelManager.m_notEnoughStarsText);
+		LevelManager.Disable(LevelManager.m_selectPlayerText);    
     }
 }

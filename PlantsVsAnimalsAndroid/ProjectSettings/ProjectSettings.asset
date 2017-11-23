@@ -150,7 +150,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.FLSs.PA
   buildNumber: {}
-  AndroidBundleVersionCode: 2
+  AndroidBundleVersionCode: 3
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
@@ -241,7 +241,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: d8009ef68cb239a42af38cef0e549151, type: 3}
+      m_Icon: {fileID: 2800000, guid: 529f45cbb16099e48a08d3b469d27c24, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -608,11 +608,15 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
+    Collab: 0
+    ErrorHub: 0
+    Hub: 0
     UNet: 1
   facebookSdkVersion: plugin
   apiCompatibilityLevel: 2
-  cloudProjectId: ad49ccb6-f06a-43a2-bb66-7e01f1bd442a
-  projectName: GlitchGarden
+  cloudProjectId: cac545b6-82f2-413e-af66-0cd51b25cb3b
+  projectName: Plants Vs Animals
   organizationId: fourth-lion-studios
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

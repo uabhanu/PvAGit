@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour
 
 		Time.timeScale = 1;
 
-		Advertisement.Initialize("1607507" , false);
+		Advertisement.Initialize("1616605" , false);
 
 		if(m_adsMenuNoButtonImage != null)
 		{
@@ -331,6 +331,8 @@ public class LevelManager : MonoBehaviour
 		{
 			m_loseMenuObj.SetActive(true);
 			m_loseMenuVisible = true;
+			m_muteOffButtonImage.enabled = false;
+			m_muteOnButtonImage.enabled = false;
 			m_pauseButtonObj.SetActive(false);	
 		}
 	}
@@ -441,6 +443,8 @@ public class LevelManager : MonoBehaviour
 		{
 			m_adsMenuObj.SetActive(true);
 			m_adsMenuVisible = true;
+			m_muteOffButtonImage.enabled = false;
+			m_muteOnButtonImage.enabled = false;
 			m_pauseButtonObj.SetActive(false);	
 		} 
 	}

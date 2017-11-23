@@ -61,7 +61,8 @@ public class Projectile : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		LevelManager.m_notEnoughStarsText.enabled = false;
+		LevelManager.Disable(LevelManager.m_notEnoughStarsText);
+		LevelManager.Disable(LevelManager.m_selectPlayerText);
 
 		m_playerButton = FindObjectOfType<PlayerButton>();
 		m_playerButton.ResetSelection();
