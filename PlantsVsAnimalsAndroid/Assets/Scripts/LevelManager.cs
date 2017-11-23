@@ -411,7 +411,7 @@ public class LevelManager : MonoBehaviour
 
 	public void Rate()
 	{
-		//Application.OpenURL(m_playStoreURL); //After this game is published in Play store, put the url in Inspector
+		Application.OpenURL(m_playStoreURL);
 	}
 
 	public void Restart()

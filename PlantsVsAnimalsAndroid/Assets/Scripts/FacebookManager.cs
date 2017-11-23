@@ -17,7 +17,7 @@ public class FacebookManager : MonoBehaviour
 
 	[SerializeField] Image /*m_inviteButtonImage ,*/ m_profilePicImage , m_shareButtonImage;
 
-	[SerializeField] string m_appLinkURL = "http://google.co.uk";
+	//[SerializeField] string m_appLinkURL = "https://play.google.com/store/apps/details?id=com.FLSs.PA";
 
 	[SerializeField] Text m_noInternetText , m_username;
 
@@ -88,13 +88,13 @@ public class FacebookManager : MonoBehaviour
 		}
 	}
 
-	void AppLink(IAppLinkResult applinkResult)
-	{
-		if(!string.IsNullOrEmpty(applinkResult.Url))
-		{
-			m_appLinkURL = applinkResult.Url; 
-		}
-	}
+//	void AppLink(IAppLinkResult applinkResult)
+//	{
+//		if(!string.IsNullOrEmpty(applinkResult.Url))
+//		{
+//			m_appLinkURL = applinkResult.Url; 
+//		}
+//	}
 
 	void AuthCallBack(IResult authResult)
 	{
@@ -121,15 +121,15 @@ public class FacebookManager : MonoBehaviour
 		}
 	}
 
-	public void Invite()
-	{
-		FB.Mobile.AppInvite
-		(
-			new System.Uri(m_appLinkURL),
-			new System.Uri("http://google.co.uk"), //Correct URL may be just like the one in Share() below
-			callback: InviteRewardUser
-		);
-	}
+//	public void Invite()
+//	{
+//		FB.Mobile.AppInvite
+//		(
+//			new System.Uri(m_appLinkURL),
+//			new System.Uri("http://google.co.uk"), //Fourth Lion Studios Home Page here
+//			callback: InviteRewardUser
+//		);
+//	}
 
 	void InviteRewardUser(IResult inviteResult)
 	{
@@ -231,7 +231,7 @@ public class FacebookManager : MonoBehaviour
 		FB.ShareLink
 		(
 			contentTitle: "Fourth Lion Studios Message",
-			contentURL: new System.Uri("http://google.co.uk"), //Play Store URL here
+			contentURL: new System.Uri("https://play.google.com/store/apps/details?id=com.FLSs.PA"),
 			contentDescription: "We really hope you love the game",
 			callback: ShareRewardUser
 		);

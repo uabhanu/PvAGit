@@ -884,7 +884,6 @@ MonoBehaviour:
   m_noInternetObj: {fileID: 1783228317}
   m_profilePicImage: {fileID: 397715119}
   m_shareButtonImage: {fileID: 0}
-  m_appLinkURL: http://google.co.uk
   m_noInternetText: {fileID: 1783228319}
   m_username: {fileID: 1281931217}
   m_shareButtonColour: {r: 0, g: 0, b: 0, a: 0}
@@ -947,7 +946,7 @@ MonoBehaviour:
   m_adsMenuTextOutline: {fileID: 0}
   m_levelCompleteTextOutline: {fileID: 0}
   m_loseMenuTextOutline: {fileID: 0}
-  m_playStoreURL: Coming Soon
+  m_playStoreURL: https://play.google.com/store/apps/details?id=com.FLSs.PA
   m_adsMenuText: {fileID: 0}
   m_gameTimeDisplay: {fileID: 0}
   m_levelCompleteText: {fileID: 0}
