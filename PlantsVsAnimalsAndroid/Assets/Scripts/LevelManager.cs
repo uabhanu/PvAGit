@@ -80,6 +80,18 @@ public class LevelManager : MonoBehaviour
 
         if(m_currentSceneIndex > 1 && m_currentSceneIndex < 7)
         {
+			if(SoundManager.m_audioSource.isPlaying)
+			{
+				m_muteOffButtonImage.enabled = false;
+				m_muteOnButtonImage.enabled = true;
+			}
+
+			else if(!SoundManager.m_audioSource.isPlaying)
+			{
+				m_muteOffButtonImage.enabled = true;
+				m_muteOnButtonImage.enabled = false;
+			}
+
 			m_notEnoughStarsText = GameObject.Find("NotEnoughStars").GetComponent<Text>();
 			m_selectPlayerText = GameObject.Find("SelectPlayer").GetComponent<Text>();
             
