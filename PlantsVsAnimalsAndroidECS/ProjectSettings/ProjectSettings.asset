@@ -635,7 +635,7 @@ PlayerSettings:
     Hub: 0
     UNet: 1
   facebookSdkVersion: plugin
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: cac545b6-82f2-413e-af66-0cd51b25cb3b
   projectName: Plants Vs Animals
   organizationId: fourth-lion-studios
