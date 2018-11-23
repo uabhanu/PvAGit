@@ -28,15 +28,15 @@ public class PlayerShootingSystem : JobComponentSystem
         [ReadOnly] public EntityArray m_entityArray;
         public EntityCommandBuffer.Concurrent m_entityCommandBuffer; // Command Buffers are used to queue up jobs so Unity can decide the best time to use them and Concurrent in particular are used for parallel jobs 
 
-
         public void Execute(int i)
         {
-            if (!m_bIsFiring)
+            if(!m_bIsFiring)
             {
                 return;
             }
 
             m_entityCommandBuffer.AddComponent(m_entityArray[i], new Firing{m_firedAt = m_currentTime});
+            //m_entityCommandBuffer.AddComponent(m_entityArray[i] , new Firing());
         }
     }
 
